@@ -63,7 +63,36 @@ var layers = document.getElementById('menu-ui');
 
 addLayer(L.mapbox.tileLayer('tmfrnz.g95a2d4n'), 'Base Map', 1);
 addLayer(L.mapbox.tileLayer('tmfrnz.gpje0j6h'), 'Bike Lanes', 2);
-addLayer(L.mapbox.tileLayer('tmfrnz.gefm0n9j'), 'Bike Stations', 3
+addLayer(L.mapbox.tileLayer('tmfrnz.gefm0n9j'), 'Bike Stations', 3);
+
+function addLayer(layer, name, zIndex) {
+    layer
+        .setZIndex(zIndex)
+        .addTo(map);
+
+    // Create a simple layer switcher that
+    // toggles layers on and off.
+    var link = document.createElement('a');
+        link.href = '#';
+        link.className = 'active';
+        link.innerHTML = name;
+
+    link.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (map.hasLayer(layer)) {
+            map.removeLayer(layer);
+            this.className = '';
+        } else {
+            map.addLayer(layer);
+            this.className = 'active';
+        }
+    };
+
+    layers.appendChild(link);
+}
+</script>
 
 
 </body>
