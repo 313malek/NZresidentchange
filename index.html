@@ -5,6 +5,7 @@
 <title>Toggling layers</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
 <style>
   body { margin:0; padding:0; }
@@ -61,32 +62,38 @@ L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1O
 var map = L.map('map').setView([-41.20,175], 6);
 var layers = document.getElementById('menu-ui');
 
-addLayer(L.mapbox.tileLayer('tmfrnz.g95a2d4n'), 'Base Map', 1);
-addLayer(L.mapbox.tileLayer('tmfrnz.gpje0j6h'), 'Bike Lanes', 2);
+var layer_young=L.mapbox.tileLayer('tmfrnz.g95a2d4n'),
+	layer_total=L.mapbox.tileLayer('tmfrnz.gefm0n9j');
+
+addLayer(layer_young, 'Young', 1);
+addLayer(layer_total, 'Total', 2);
 //addLayer(L.mapbox.tileLayer('tmfrnz.gefm0n9j'), 'Bike Stations', 3);
 
 function addLayer(layer, name, zIndex) {
     layer
-        .setZIndex(zIndex)
-        .addTo(map);
+        .setZIndex(zIndex);
 
     // Create a simple layer switcher that
     // toggles layers on and off.
     var link = document.createElement('a');
         link.href = '#';
-        link.className = 'active';
         link.innerHTML = name;
-
+		
+	if (name=='Young'){
+		layer.addTo(map);
+		link.className = 'active';}
+	else{
+		link.className = ''};
+	
     link.onclick = function(e) {
         e.preventDefault();
         e.stopPropagation();
 
-        if (map.hasLayer(layer)) {
-            //map.removeLayer(layer);
-            //this.className = '';
-        } else {
-		    map.clearLayers();
+        if (!map.hasLayer(layer)) {
+			map.removeLayer(layer_young);
+			map.removeLayer(layer_total);
             map.addLayer(layer);
+			$('.active').removeClass('active');
             this.className = 'active';
         }
     };
