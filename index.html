@@ -53,6 +53,9 @@
       .menu-ui a.active:hover {
         background:#3074a4;
         }
+		#map{
+		background:#ebf0f2;
+		}
 </style>
 <nav id='menu-ui' class='menu-ui'></nav>
 <div id='map'></div>
@@ -61,12 +64,12 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A';
 var map = L.map('map',{
 				minZoom: 5,
-				maxZoom: 12,
+				maxZoom: 9,
 				maxBounds: [[-48.6619,165],[-33.2479,180]]
 			}).setView([-41.20,175], 6);
 var layers = document.getElementById('menu-ui');
 
-var layer_young=L.mapbox.tileLayer('tmfrnz.g95a2d4n'),
+var layer_young=L.mapbox.tileLayer('tmfrnz.resident_change'),
 	layer_total=L.mapbox.tileLayer('tmfrnz.gefm0n9j');
 
 addLayer(layer_young, 'Young', 1);
