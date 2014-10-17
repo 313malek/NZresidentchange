@@ -8,7 +8,7 @@ $(function(){
   var layers = document.getElementById('menu-ui');
 
   var layer_young=L.mapbox.tileLayer('tmfrnz.l0ffajor'),
-    layer_total=L.mapbox.tileLayer('tmfrnz.total_resident_change'),
+    layer_total=L.mapbox.tileLayer('tmfrnz.jded0a4i'),
     layer_base =L.mapbox.tileLayer('tmfrnz.71d5bu2v');
 
   layer_base.setZIndex(1)
