@@ -65,12 +65,12 @@ L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1O
 var map = L.map('map',{
 				minZoom: 5,
 				maxZoom: 9,
-				maxBounds: [[-48.6619,165],[-33.2479,180]]
+				maxBounds: [[-48.6619,155],[-33.2479,190]]
 			}).setView([-41.20,175], 6);
 var layers = document.getElementById('menu-ui');
 
 var layer_young=L.mapbox.tileLayer('tmfrnz.resident_change'),
-	layer_total=L.mapbox.tileLayer('tmfrnz.gefm0n9j'),
+	layer_total=L.mapbox.tileLayer('tmfrnz.total_resident_change'),
 	layer_base =L.mapbox.tileLayer('tmfrnz.4snat7zl');
 	
 layer_base.setZIndex(1)
