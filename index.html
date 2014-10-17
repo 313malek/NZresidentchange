@@ -6,111 +6,17 @@
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/Control.Loading.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
+<link href='css/app.css' rel='stylesheet' />
+<link href='css/Control.Loading.css' rel='stylesheet' />
 </head>
 <body>
 
-
-<style>
-.menu-ui {
-  background:#fff;
-  position:absolute;
-  top:10px;right:10px;
-  z-index:1;
-  border-radius:3px;
-  width:120px;
-  border:1px solid rgba(0,0,0,0.4);
-  }
-  .menu-ui a {
-    font-size:13px;
-    color:#404040;
-    display:block;
-    margin:0;padding:0;
-    padding:10px;
-    text-decoration:none;
-    border-bottom:1px solid rgba(0,0,0,0.25);
-    text-align:center;
-    }
-    .menu-ui a:first-child {
-      border-radius:3px 3px 0 0;
-      }
-    .menu-ui a:last-child {
-      border:none;
-      border-radius:0 0 3px 3px;
-      }
-    .menu-ui a:hover {
-      background:#f8f8f8;
-      color:#404040;
-      }
-    .menu-ui a.active {
-      background:#3887BE;
-      color:#FFF;
-      }
-      .menu-ui a.active:hover {
-        background:#3074a4;
-        }
-		#map{
-		background:#ebf0f2;
-		}
-</style>
-<nav id='menu-ui' class='menu-ui'></nav>
-<div id='map'></div>
-
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A';
-var map = L.map('map',{
-				minZoom: 5,
-				maxZoom: 9,
-				maxBounds: [[-48.6619,155],[-33.2479,190]]
-			}).setView([-41.20,175], 6);
-var layers = document.getElementById('menu-ui');
-
-var layer_young=L.mapbox.tileLayer('tmfrnz.resident_change'),
-	layer_total=L.mapbox.tileLayer('tmfrnz.total_resident_change'),
-	layer_base =L.mapbox.tileLayer('tmfrnz.4snat7zl');
-	
-layer_base.setZIndex(1)
-		.addTo(map);
-
-addLayer(layer_young, 'Young', 2);
-addLayer(layer_total, 'Total', 3);
-
-function addLayer(layer, name, zIndex) {
-    layer.setZIndex(zIndex);
-
-    // Create a simple layer switcher that
-    // toggles layers on and off.
-    var link = document.createElement('a');
-        link.href = '#';
-        link.innerHTML = name;
-		
-	if (name=='Young'){
-		layer.addTo(map);
-		link.className = 'active';}
-	else{
-		link.className = ''};
-	
-    link.onclick = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (!map.hasLayer(layer)) {
-			map.removeLayer(layer_young);
-			map.removeLayer(layer_total);
-            map.addLayer(layer);
-			$('.active').removeClass('active');
-            this.className = 'active';
-        }
-    };
-
-    layers.appendChild(link);
-}
-</script>
-
+  <!--<nav id='menu-ui' class='menu-ui'></nav>-->
+  <div id='map' class="map"></div>
+  <div id='map2' class="map"></div>
 
 </body>
 </html>
