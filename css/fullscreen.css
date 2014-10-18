@@ -1,0 +1,10 @@
+/* fullscreen specific */
+.fullscreen .hidden-fullscreen,
+.standalone .hidden-fullscreen,
+.visible-fullscreen {
+  display: none !important;
+}
+
+.fullscreen .visible-fullscreen {
+  display: block !important;
+}
