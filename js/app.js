@@ -85,18 +85,12 @@ $(function(){
       map.panTo(ll);
     }
   }
-  function updateView() {
+  function rememberMapView() {
     mapView.z = map.getZoom();
     mapView.y = Math.round(map.getCenter().lat * 1000) / 1000;
     mapView.x = Math.round(map.getCenter().lng * 1000) / 1000;
   }  
-  function onDragEnd(e) {
-    updateView();
-  }  
-
-  function onZoomEnd(e) {
-    updateView();
-  }  
+   
   
   function setMinZoom() {
     var mapDim = {
@@ -112,11 +106,12 @@ $(function(){
       loadingControl: true
     });
     setMinZoom();
+    
     map.options.maxZoom = settings.zoom_max;
     map.setMaxBounds(settings.bounds_max);
     
-    map.on('zoomend', onZoomEnd);
-    map.on('dragend', onDragEnd);
+    map.on('zoomend', rememberMapView);
+    map.on('dragend', rememberMapView);
     
     updateMapView();
     
