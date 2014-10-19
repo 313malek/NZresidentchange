@@ -8,7 +8,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/plugins.min.js"></script>
-<script src="js/fullscreen.js"></script>
 <script src="js/Control.Loading.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
 <link href='css/app.css' rel='stylesheet' />
@@ -18,42 +17,42 @@
 </head>
 <body class='standalone'>
 	
-  <nav id='menu-ui' class='menu-ui'></nav>
+  <nav class="menu-ui" id="menu-ui">
+    <a href="#" class="toggle-layer" data-mapid="y">Aged 20-34</a>
+    <a href="#" class="toggle-layer" data-mapid="all">All ages</a>
+  </nav>
   <div id='map' class="map"></div>
-  <!--<div id='map2' class="map"></div>-->
   
   <div class='information'>
 		<div class='information-box'>
 			<a href='#' class='toggle-info'>X</a>
-			<p>This is an interactive version of the maps created by <a href=''>Aaron Schiff</a> using census data describing population changes between 2001 and 2013. 
-			This visualization allows comparing between all ages category and young adults aged 20 to 34.</p>
-			<p>“In the following maps, there is one blue dot for each new person in census area units that experienced population growth over this time, 
-			and one red dot for each person lost in areas where the population shrank.”</p>
+			<p>
+        This is an interactive version of the maps created by <a href=''>Aaron Schiff</a> using census data describing population changes between 2001 and 2013. 
+        This visualization allows comparing between all ages category and young adults aged 20 to 34.
+      </p>
+			<p>
+        “In the following maps, there is one blue dot for each new person in census area units that experienced population growth over this time, 
+        and one red dot for each person lost in areas where the population shrank.”
+      </p>
 		</div>
 	</div>
   
   <footer class="navbar navbar-fixed-bottom">
-    <ul class="footer-links-left footer-links-aside pull-left list-inline">
-      <li class="visible-xs">
-        <a href="#" class="toggle-aside" title="Back to Map">
-          <span class="wwf-icon-map"></span>Back to Map</a>
-      </li>
-    </ul>
     <ul class="hidden-aside footer-links-left-text footer-links-left pull-left list-inline">
       <li>
-        <a class="small toggle-info" target="_blank" href="http://www.wwf.org.nz/what_we_do/community_funding/" title="Learn more about WWF’s Community Funding">Learn more</a>
+        <a class="small toggle-info" target="_blank" href="#" title="Read about this map">About</a>
       </li>
       <li>
-        <a class="small" href="mailto:info@wwf.org.nz" title="Questions or Feedback? Contact Us">Contact us</a>
+        <a class="small" href="http://dumpark.com" title="A data visualisation by dumpark">a data visualisation by dumpark</a>
       </li>
     </ul>
     <ul class="footer-links-right pull-right list-inline">
       <li>
-        <div class="hidden-fullscreen"><a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="wwf-icon-fullscreen"></span>enter</a>
+        <div class="hidden-fullscreen"><a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="icon-fullscreen"></span>enter</a>
         </div>
       </li>
       <li>
-        <div class="visible-fullscreen"><a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="wwf-icon-fullscreen-close"></span>exit</a>
+        <div class="visible-fullscreen"><a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="icon-fullscreen-close"></span>exit</a>
         </div>
       </li>
     </ul>
