@@ -11,12 +11,17 @@
 <script src="js/Control.Loading.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
 <link href='css/app.css' rel='stylesheet' />
-<link href='css/fullscreen.css' rel='stylesheet' />
 <link href='css/bootstrap.min.css' rel='stylesheet' />
 <link href='css/Control.Loading.css' rel='stylesheet' />
 </head>
 <body class='standalone'>
-	
+  <header role="banner" id="top" class="navbar navbar-fixed-top ">
+      <div class="navbar-header">    
+        <a class="navbar-brand" href="#">Mapping the young adults of New Zealand</1>
+        <a class="small toggle-info" target="_blank" href="#" title="Read about this map">About</a>
+      </div>
+  </header>
+  
   <nav class="menu-ui" id="menu-ui">
     <a href="#" class="toggle-layer" data-mapid="y">Aged 20-34</a>
     <a href="#" class="toggle-layer" data-mapid="all">All ages</a>
@@ -27,35 +32,32 @@
 		<div class='information-box'>
 			<a href='#' class='toggle-info'>X</a>
 			<p>
-        This is an interactive version of the maps created by <a href=''>Aaron Schiff</a> using census data describing population changes between 2001 and 2013. 
-        This visualization allows comparing between all ages category and young adults aged 20 to 34.
+        This interactive map depicts the population change in New Zealand between 2001 and 2013. The original density dot map was created by 
+        <a href="http://schiff.co.nz/2014/10/mapping-the-youngish-adults/" title="Aaron Schiff’s blog - Mapping the young(ish) adults" target="_blank" >Aaron Schiff</a> using census data:         
       </p>
 			<p>
-        “In the following maps, there is one blue dot for each new person in census area units that experienced population growth over this time, 
-        and one red dot for each person lost in areas where the population shrank.”
+        <em>
+          "[…] there is one blue dot for each new person in census area units that experienced population growth over this time, and one red dot for each person lost in areas where the population shrank."
+        </em>
+      </p>
+      <p>
+        The focus is on young adults aged 20 to 34 and allows comparing with all ages category.
       </p>
 		</div>
 	</div>
   
-  <footer class="navbar navbar-fixed-bottom">
-    <ul class="hidden-aside footer-links-left-text footer-links-left pull-left list-inline">
-      <li>
-        <a class="small toggle-info" target="_blank" href="#" title="Read about this map">About</a>
-      </li>
-      <li>
-        <a class="small" href="http://dumpark.com" title="A data visualisation by dumpark">a data visualisation by dumpark</a>
-      </li>
-    </ul>
-    <ul class="footer-links-right pull-right list-inline">
-      <li>
-        <div class="hidden-fullscreen"><a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="icon-fullscreen"></span>enter</a>
-        </div>
-      </li>
-      <li>
-        <div class="visible-fullscreen"><a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="icon-fullscreen-close"></span>exit</a>
-        </div>
-      </li>
-    </ul>
-  </footer>
+  <footer id="bottom" class="navbar navbar-fixed-bottom hidden-standalone">
+      <ul class="pull-right list-inline">
+        <li>
+          <div class="hidden-fullscreen"><a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="icon-fullscreen"></span></a>
+          </div>
+        </li>
+        <li>
+          <div class="visible-fullscreen"><a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="icon-fullscreen-close"></span></a>
+          </div>
+        </li>
+      </ul>
+  </footer>  
+  
 </body>
 </html>

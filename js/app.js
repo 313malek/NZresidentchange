@@ -37,7 +37,7 @@ $(function(){
           }).setView([-41.20,175], 6);
     
     // add basemap
-    L.mapbox.tileLayer('tmfrnz.pmu6jemi')
+    L.mapbox.tileLayer('tmfrnz.r1bp4x6r')
             .setZIndex(1)
             .addTo(map);
     
