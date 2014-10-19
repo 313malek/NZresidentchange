@@ -25,7 +25,11 @@ $(function(){
       e.preventDefault();
       e.stopPropagation();
       $('.information').addClass('hidden');
+    });
+    $('.information-box').on('click',function(e){
+      e.stopPropagation();
     })
+    
   }
   function initMap() {
     L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A';
