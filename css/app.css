@@ -248,7 +248,7 @@ padding:20px;
 opacity:0.7;
 }
 
-@media (min-width: 768px){
+@media (min-width: 600px){
 	.information-box {
 		top: 30%;
 		width: 500px;
