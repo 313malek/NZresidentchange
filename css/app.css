@@ -135,7 +135,8 @@ top: 12px;
 }
 
 
-.navbar-header{float:none;}
+.navbar-header{float:none;
+background: white;}
 
 .navbar-fixed-top, 
 .navbar-fixed-bottom {
