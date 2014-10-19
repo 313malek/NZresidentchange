@@ -1,17 +1,48 @@
 $(function(){
 
-  var map_url = 'http://dumparkltd.github.io/NZresidentchange/',
-      parent_url = 'http://localhost:8888/NZresidentchange/embed.html';      
+  var settings = {
+    token:'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A',
+    base_id: 'tmfrnz.r1bp4x6r',
+    young_id: 'tmfrnz.l0ffajor',
+    all_id: 'tmfrnz.jded0a4i',
+    map_url : 'http://dumparkltd.github.io/NZresidentchange/',
+    parent_url : 'http://localhost:8888/NZresidentchange/embed.html',
+    zoom_max : 12,
+    bounds_min: L.latLngBounds(L.latLng(-46.5, 167.3), L.latLng(-35, 178.5)), // set initial min boundaries (SW,NE)
+    bounds_max: L.latLngBounds(L.latLng(-57.1, 135), L.latLng(-23.7, 210)), // set maximum boundaries (SW,NE)
+     //[[-48.6619,155],[-33.2479,190]]
+  },
+  mapView = {
+      'x': '',
+      'y': '',
+      'z': ''
+  },
+  layers = {
+    young:'',
+    all:''
+  },
+  map,
+  zooming = false;
   
   initFullscreen();
   
   initMap();
 
-  initFooter();
+  initNavbars();
   
+  $('.navbar-brand').on('click', function(e){
+    resetMapView();
+  });
   
-  // EVENTS
-  function initFooter(){ 
+  function resetMapView(){
+    setMinZoom();
+    mapView = {'x': '','y': '','z': ''};    
+    updateMapView();
+    map.removeLayer(layers.all);
+    map.addLayer(layers.young);
+  }  
+  
+  function initNavbars(){ 
     $('.toggle-info').on('click',function(e){
       e.preventDefault();
       if ($('.information').hasClass('hidden')){
@@ -28,52 +59,124 @@ $(function(){
     });
     $('.information-box').on('click',function(e){
       e.stopPropagation();
-    })
+    });
     
   }
+  function updateMapView(){
+    var ll;
+    // if both x and y are set
+    if ((mapView.x !== '' && mapView.y !== '')) {
+      ll = L.latLng(mapView.y, mapView.x);
+      // if not inside area bounds, set to default center
+      if (!settings.bounds_min.contains(ll)) {
+        ll = settings.bounds_min.getCenter();
+      }
+      // else set to default center
+    } else {
+      ll = settings.bounds_min.getCenter();
+    }
+    // zoom if set
+    if (mapView.z !== '') {
+      // make sure zoom is allowed
+      map.setView(ll, Math.max(Math.min(mapView.z, settings.zoom_max), map.options.minZoom));
+      // else set to default zoom level 
+    } else {
+      map.fitBounds(settings.bounds_min);
+      map.panTo(ll);
+    }
+  }
+  function updateView() {
+    mapView.z = map.getZoom();
+    mapView.y = Math.round(map.getCenter().lat * 1000) / 1000;
+    mapView.x = Math.round(map.getCenter().lng * 1000) / 1000;
+  }  
+  function onDragEnd(e) {
+    updateView();
+  }  
+
+  function onZoomEnd(e) {
+    updateView();
+  }  
+  
+  function setMinZoom() {
+    var mapDim = {
+      height: $('#map').height(),
+      width: $('#map').width()
+    }; // get map container dimensions
+    map.options.minZoom = getBoundsZoomLevel(settings.bounds_min, mapDim); // set minimum required zoom to fit area bounds in container    
+  }
+  
   function initMap() {
-    L.mapbox.accessToken = 'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A';
-    var map = L.map('map',{
-            minZoom: 5,
-            maxZoom: 12,
-            maxBounds: [[-48.6619,155],[-33.2479,190]],
-            loadingControl: true
-          }).setView([-41.20,175], 6);
+    L.mapbox.accessToken = settings.token;
+    map = L.map('map',{
+      loadingControl: true
+    });
+    setMinZoom();
+    map.options.maxZoom = settings.zoom_max;
+    map.setMaxBounds(settings.bounds_max);
+    
+    map.on('zoomend', onZoomEnd);
+    map.on('dragend', onDragEnd);
+    
+    updateMapView();
     
     // add basemap
-    L.mapbox.tileLayer('tmfrnz.r1bp4x6r')
+    L.mapbox.tileLayer(settings.base_id)
             .setZIndex(1)
             .addTo(map);
     
     // add young map
-    var layer_young = L.mapbox.tileLayer('tmfrnz.l0ffajor')
+    layers.young = L.mapbox.tileLayer(settings.young_id)
             .setZIndex(2)
             .addTo(map);
     $("a[data-mapid='y']").addClass('active');
             
     
     // add     
-    var layer_total = L.mapbox.tileLayer('tmfrnz.jded0a4i')
+    layers.all = L.mapbox.tileLayer(settings.all_id)
       .setZIndex(2);
     
     $('.toggle-layer').on('click', function(e){
       e.preventDefault();
       e.stopPropagation();
-      var data = $(this).data();
       if (!$(this).hasClass('active')){
+        var data = $(this).data();
         $('.toggle-layer').removeClass('active');        
         if (data.mapid === 'y') {
-          map.removeLayer(layer_total);
-          map.addLayer(layer_young);
+          map.removeLayer(layers.all);
+          map.addLayer(layers.young);
         } else if (data.mapid === 'all') {
-          map.removeLayer(layer_young);
-          map.addLayer(layer_total);
+          map.removeLayer(layers.young);
+          map.addLayer(layers.all);
         }
         $(this).addClass('active');
       }      
     });
   }
-  
+  function getBoundsZoomLevel(bounds, mapDim) {
+    var WORLD_DIM = {
+      height: 256,
+      width: 256
+    };
+
+    function latRad(lat) {
+      var sin = Math.sin(lat * Math.PI / 180);
+      var radX2 = Math.log((1 + sin) / (1 - sin)) / 2;
+      return Math.max(Math.min(radX2, Math.PI), -Math.PI) / 2;
+    }
+
+    function zoom(mapPx, worldPx, fraction) {
+      return Math.floor(Math.log(mapPx / worldPx / fraction) / Math.LN2);
+    }
+    var ne = bounds.getNorthEast();
+    var sw = bounds.getSouthWest();
+    var latFraction = (latRad(ne.lat) - latRad(sw.lat)) / Math.PI;
+    var lngDiff = ne.lng - sw.lng;
+    var lngFraction = ((lngDiff < 0) ? (lngDiff + 360) : lngDiff) / 360;
+    var latZoom = zoom(mapDim.height, WORLD_DIM.height, latFraction);
+    var lngZoom = zoom(mapDim.width, WORLD_DIM.width, lngFraction);
+    return Math.min(latZoom, lngZoom, settings.zoom_max);
+  }
   
 /* FULLSCREEN   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
   function initFullscreen() {
@@ -92,19 +195,14 @@ $(function(){
           if (wasFullScreen) {
             $('body').removeClass('fullscreen');
 //            setMinZoom();
-//            map.fitBounds(L.latLngBounds(getActivePoints()), {
-//              pan: {
-//                animate: true
-//              },
-//              zoom: {
-//                animate: true
-//              },
-//              maxZoom: settings.zoom_max_filter
-//            });
+//            updateMapView();
+            resetMapView();
             // you have just EXITED full screen
           } else {
             $('body').addClass('fullscreen');
 //            setMinZoom();
+//            updateMapView();
+            resetMapView();
 //            map.fitBounds(L.latLngBounds(getActivePoints()), {
 //              pan: {
 //                animate: true
@@ -123,7 +221,7 @@ $(function(){
       if (top === self) {
         $('body').addClass('standalone');
       }
-      $("a[data-toggle='fullscreen']").attr("href", map_url);
+      $("a[data-toggle='fullscreen']").attr("href", settings.map_url);
       $("a[data-toggle='fullscreen']").click(function (e) {
         // if embedded and fullscreen support
         // also excluding webkit browsers for now
@@ -133,7 +231,7 @@ $(function(){
           $('html').requestFullScreen();
         }
       });
-      $("a[data-toggle='fullscreen-close']").attr("href", parent_url);
+      $("a[data-toggle='fullscreen-close']").attr("href", settings.parent_url);
       $("a[data-toggle='fullscreen-close']").click(function (e) {
         // if embedded and fullscreen support
         if (top !== self && fullScreenApi.supportsFullScreen) {
@@ -143,5 +241,9 @@ $(function(){
       });
     }
   }    
+  $(window).on('resize', function () {
+    setMinZoom();
+    updateMapView();
+  });
       
 });
