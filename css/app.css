@@ -1,3 +1,68 @@
+@font-face {
+    font-family: 'neusa_extraboldregular';
+    src: url('../xproj/assets/fonts/Neusa-ExtraBold-webfont.eot');
+    src: url('../xproj/assets/fonts/Neusa-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/Neusa-ExtraBold-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/Neusa-ExtraBold-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/Neusa-ExtraBold-webfont.svg#neusa_extraboldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'neusa_boldregular';
+    src: url('../xproj/assets/fonts/Neusa-Bold-webfont.eot');
+    src: url('../xproj/assets/fonts/Neusa-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/Neusa-Bold-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/Neusa-Bold-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/Neusa-Bold-webfont.svg#neusa_boldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'neusa_mediumregular';
+    src: url('../xproj/assets/fonts/Neusa-Medium-webfont.eot');
+    src: url('../xproj/assets/fonts/Neusa-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/Neusa-Medium-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/Neusa-Medium-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/Neusa-Medium-webfont.svg#neusa_mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'function_probook';
+    src: url('../xproj/assets/fonts/FunctionPro-Book-webfont.eot');
+    src: url('../xproj/assets/fonts/FunctionPro-Book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/FunctionPro-Book-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/FunctionPro-Book-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/FunctionPro-Book-webfont.svg#function_probook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'function_pro_bookbold';
+    src: url('../xproj/assets/fonts/FunctionPro-Bold-webfont.eot');
+    src: url('../xproj/assets/fonts/FunctionPro-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/FunctionPro-Bold-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/FunctionPro-Bold-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/FunctionPro-Bold-webfont.svg#function_pro_bookbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'function_promedium';
+    src: url('../xproj/assets/fonts/FunctionPro-Medium-webfont.eot');
+    src: url('../xproj/assets/fonts/FunctionPro-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../xproj/assets/fonts/FunctionPro-Medium-webfont.woff') format('woff'),
+         url('../xproj/assets/fonts/FunctionPro-Medium-webfont.ttf') format('truetype'),
+         url('../xproj/assets/fonts/FunctionPro-Medium-webfont.svg#function_promedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body { margin:0; padding:0; }
 .map{
 		background:#ebf0f2;
