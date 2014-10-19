@@ -21,16 +21,16 @@ $(function(){
     young:'',
     all:''
   },
-  map,
-  zooming = false;
+  map;
   
   initFullscreen();
   
   initMap();
 
-  initNavbars();
+  initInfo();
   
   $('.navbar-brand').on('click', function(e){
+    e.preventDefault();
     resetMapView();
   });
   
@@ -42,7 +42,7 @@ $(function(){
     map.addLayer(layers.young);
   }  
   
-  function initNavbars(){ 
+  function initInfo(){ 
     $('.toggle-info').on('click',function(e){
       e.preventDefault();
       if ($('.information').hasClass('hidden')){
@@ -194,24 +194,11 @@ $(function(){
         if (wasFullScreen !== fullScreenApi.isFullScreen()) { // fullscreen mode has changed
           if (wasFullScreen) {
             $('body').removeClass('fullscreen');
-//            setMinZoom();
-//            updateMapView();
             resetMapView();
             // you have just EXITED full screen
           } else {
             $('body').addClass('fullscreen');
-//            setMinZoom();
-//            updateMapView();
             resetMapView();
-//            map.fitBounds(L.latLngBounds(getActivePoints()), {
-//              pan: {
-//                animate: true
-//              },
-//              zoom: {
-//                animate: true
-//              },
-//              maxZoom: settings.zoom_max_filter
-//            });
             // you have just ENTERED full screen
           }
           wasFullScreen = fullScreenApi.isFullScreen();
