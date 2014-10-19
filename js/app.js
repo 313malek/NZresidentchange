@@ -16,7 +16,21 @@ $(function(){
 
   addLayer(layer_young, 'Young', 2);
   addLayer(layer_total, 'Total', 3);
-
+  
+  $('.toggle-info').on('click',function(e){
+	e.preventDefault();
+	if ($('.information').hasClass('hidden')){
+		$('.information').removeClass('hidden');
+	}else{
+		$('.information').addClass('hidden');
+	}
+	});
+	
+  $('.information').on('click',function(e){
+	e.preventDefault();
+	$('.information').addClass('hidden');
+  })
+  
   function addLayer(layer, name, zIndex) {
       layer.setZIndex(zIndex);
 
@@ -47,5 +61,7 @@ $(function(){
 
       layers.appendChild(link);
   }
+  
+  
       
 });

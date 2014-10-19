@@ -16,11 +16,22 @@
 <link href='css/bootstrap.min.css' rel='stylesheet' />
 <link href='css/Control.Loading.css' rel='stylesheet' />
 </head>
-<body>
-
+<body class='standalone'>
+	
   <nav id='menu-ui' class='menu-ui'></nav>
   <div id='map' class="map"></div>
   <!--<div id='map2' class="map"></div>-->
+  
+  <div class='information'>
+		<div class='information-box'>
+			<a href='#' class='toggle-info'>X</a>
+			<p>This is an interactive version of the maps created by <a href=''>Aaron Schiff</a> using census data describing population changes between 2001 and 2013. 
+			This visualization allows comparing between all ages category and young adults aged 20 to 34.</p>
+			<p>“In the following maps, there is one blue dot for each new person in census area units that experienced population growth over this time, 
+			and one red dot for each person lost in areas where the population shrank.”</p>
+		</div>
+	</div>
+  
   <footer class="navbar navbar-fixed-bottom">
     <ul class="footer-links-left footer-links-aside pull-left list-inline">
       <li class="visible-xs">
@@ -30,7 +41,7 @@
     </ul>
     <ul class="hidden-aside footer-links-left-text footer-links-left pull-left list-inline">
       <li>
-        <a class="small" target="_blank" href="http://www.wwf.org.nz/what_we_do/community_funding/" title="Learn more about WWF’s Community Funding">Learn more</a>
+        <a class="small toggle-info" target="_blank" href="http://www.wwf.org.nz/what_we_do/community_funding/" title="Learn more about WWF’s Community Funding">Learn more</a>
       </li>
       <li>
         <a class="small" href="mailto:info@wwf.org.nz" title="Questions or Feedback? Contact Us">Contact us</a>
