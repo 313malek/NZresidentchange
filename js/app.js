@@ -9,13 +9,13 @@ $(function(){
 
   var layer_young=L.mapbox.tileLayer('tmfrnz.l0ffajor'),
     layer_total=L.mapbox.tileLayer('tmfrnz.jded0a4i'),
-    layer_base =L.mapbox.tileLayer('tmfrnz.71d5bu2v');
+    layer_base =L.mapbox.tileLayer('tmfrnz.pmu6jemi');
 
   layer_base.setZIndex(1)
       .addTo(map);
 
-  addLayer(layer_young, 'Young', 2);
-  addLayer(layer_total, 'Total', 3);
+  addLayer(layer_young, 'Aged 20-34', 2);
+  addLayer(layer_total, 'All ages', 3);
   
   $('.toggle-info').on('click',function(e){
 	e.preventDefault();
@@ -40,7 +40,7 @@ $(function(){
           link.href = '#';
           link.innerHTML = name;
 
-    if (name=='Young'){
+    if (name=='Aged 20-34'){
       layer.addTo(map);
       link.className = 'active';}
     else{
