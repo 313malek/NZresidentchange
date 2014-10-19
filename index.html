@@ -10,9 +10,9 @@
 <script src="js/plugins.min.js"></script>
 <script src="js/Control.Loading.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
-<link href='css/app.css' rel='stylesheet' />
 <link href='css/bootstrap.min.css' rel='stylesheet' />
 <link href='css/Control.Loading.css' rel='stylesheet' />
+<link href='css/app.css' rel='stylesheet' />
 </head>
 <body class='standalone'>
   <header role="banner" id="top" class="navbar navbar-fixed-top ">
@@ -26,11 +26,19 @@
     <a href="#" class="toggle-layer" data-mapid="y">Aged 20-34</a>
     <a href="#" class="toggle-layer" data-mapid="all">All ages</a>
   </nav>
+  <div class="legend-container">
+	  LEGEND
+	  <div class="line"></div>
+	  <div class="legend-label"><div class="circle red"></div> 1 resident increase</div>
+	  <div class="legend-label"><div class="circle blue"></div> 1 resident decrease</div>
+  </div>
   <div id='map' class="map"></div>
   
   <div class='information'>
 		<div class='information-box'>
-			<a href='#' class='toggle-info'>X</a>
+			<a href='#' class='X-button toggle-info'>&#10006;</a>
+			<p>About</p>
+			<div class="line"></div>
 			<p>
         This interactive map depicts the population change in New Zealand between 2001 and 2013. The original density dot map was created by 
         <a href="http://schiff.co.nz/2014/10/mapping-the-youngish-adults/" title="Aaron Schiff’s blog - Mapping the young(ish) adults" target="_blank" >Aaron Schiff</a> using census data:         
@@ -43,6 +51,7 @@
       <p>
         The focus is on young adults aged 20 to 34 and allows comparing with all ages category.
       </p>
+	  <a href='#' class='toggle-info'>Explore<a>
 		</div>
 	</div>
   
