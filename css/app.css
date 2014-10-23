@@ -98,16 +98,17 @@ body { margin:0; padding:0;
       border:none;
       }
     .menu-ui a:hover {
-      background:#404040;
-      color:#2c7bb6;;
+	  background:#587e8e;
+      opacity:0.5;
+      color:#FFF;;
       }
     .menu-ui a.active {
-      background:#a7a7a7;
+      background:#587e8e;
       color:#FFF;
       }
 		
 a {
-color: #2c7bb6;;
+color: #587e8e;
 text-decoration: none;
 }
 
@@ -125,13 +126,18 @@ font-family: 'function_probook';
 color:black;
 }
 
+a.navbar-brand{
+color:black;
+
+}
+
 .sep{
 padding: 15px 0px;
 }
 
 
 a.small.toggle-info {
-color: #2c7bb6;
+color: #587e8e;
 font-family:'function_probook';
 }
 
