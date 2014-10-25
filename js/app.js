@@ -3,8 +3,8 @@ $(function(){
   var settings = {
     token:'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A',
     base_id: 'tmfrnz.gvbfs7su',
-    young_id: 'tmfrnz.hp7am7vi',
-    all_id: 'tmfrnz.fek7f1or',
+    young_id: 'tmfrnz.1wis5rk9',
+    all_id: 'tmfrnz.9of7p66r',
     map_url : 'http://dumparkltd.github.io/NZresidentchange/',
     parent_url : 'http://localhost:8888/NZresidentchange/embed.html',
     zoom_max : 12,
