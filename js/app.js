@@ -108,12 +108,13 @@ $(function(){
     });
     
     var credits = L.control.attribution({prefix:false}).addTo(map);
-    credits.addAttribution('Map data \n\
+    credits.addAttribution('a data visualisation by <a href="http://dumpark.com" target="_blank" title="dumpark creative industries">dumpark</a> \n\
+- base map \n\
 <a href="http://creativecommons.org/licenses/by/3.0/nz/" title="CC BY 3.0 NZ" target="_blank">[CC]</a> \n\
 <a href="http://data.linz.govt.nz/" target="_blank" title="Land Information New Zealand">LINZ</a>, \n\
 <a href="http://lris.scinfo.org.nz/" target="_blank" title="Landcare Research New Zealand Ltd">LRIS</a>,  \n\
-<a href="http://www.stats.govt.nz/" target="_blank" title="Statistics New Zealand">Statistics NZ</a> - \n\
-a data visualisation by <strong><a href="http://dumpark.com" target="_blank" title="dumpark creative industries">dumpark</a></strong></div>');
+<a href="http://www.stats.govt.nz/" target="_blank" title="Statistics New Zealand">Statistics NZ</a>\n\
+</div>');
     
     setMinZoom();
     

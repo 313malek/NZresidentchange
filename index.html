@@ -1,73 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=utf-8 />
-<title>Mapping the young adults of New Zealand</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js'></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/plugins.min.js"></script>
-<script src="js/Control.Loading.js"></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css' rel='stylesheet' />
-<link href='css/bootstrap.min.css' rel='stylesheet' />
-<link href='css/Control.Loading.css' rel='stylesheet' />
-<link href='css/app.css' rel='stylesheet' />
+  <meta charset=utf-8 />
+  <title>Mapping the young adults of New Zealand</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/plugins.min.js"></script>
+  <script src="js/Control.Loading.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox.js/v2.1.2/mapbox.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/Control.Loading.css" rel="stylesheet" />
+  <link href="css/app.css" rel="stylesheet" />
 </head>
 <body class='standalone'>
+  <div class="hidden-fullscreen shadow-wrap"></div>  
   <header role="banner" id="top" class="navbar navbar-fixed-top ">
-      <div class="navbar-header">    
-        <a class="navbar-brand" href="#">Mapping the young adults<span class="hidden-xs"> of New Zealand </span></a>
-		<span class="navbar-brand sep">|</span>
-        <a class="navbar-brand small toggle-info" target="_blank" href="#" title="Read about this map">About</a>
-      </div>
+    <div class="navbar-header">    
+      <a class="navbar-brand home" href="#">Mapping the young adults<span class="hidden-xs"> of New Zealand </span></a>
+      <span class="navbar-brand sep">|</span>
+      <a class="navbar-brand toggle-info small" target="_blank" href="#" title="Read about this map">About</a>
+    </div>
   </header>
   
   <nav class="menu-ui" id="menu-ui">
     <a href="#" class="toggle-layer" data-mapid="y">Aged 20 to 34</a>
     <a href="#" class="toggle-layer" data-mapid="all">All ages</a>
   </nav>
+  
   <div class="legend-container">
-	  KEY
-	  <div class="line"></div>
 	  <div class="legend-label"><div class="circle red"></div> 1 resident increase</div>
 	  <div class="legend-label"><div class="circle blue"></div> 1 resident decrease</div>
   </div>
-  <div id='map' class="map"></div>
   
-  <div class='information'>
-		<div class='information-box'>
-			<a href='#' class='X-button toggle-info'>&#10005;</a>
-			<p>About</p>
-			<div class="line"></div>
+  <div id="map" class="map"></div>
+  
+  <div class="information">
+		<div class="information-box">
+			<a href="#" class="btn-close toggle-info pull-right">&#10005;</a>
+      <h4>About: Mapping the young adults<span class="hidden-xs"> of New Zealand </span></h4>
+      <hr>
+			<p>This interactive map depicts the population change of New Zealand's young adults between 2001 and 2013. The original density dot map was created by 
+        <a href="http://schiff.co.nz/2014/10/mapping-the-youngish-adults/" title="Aaron Schiff’s blog - Mapping the young(ish) adults" target="_blank" >Aaron Schiff</a> using census data:</p>
 			<p>
-        This interactive map depicts the population change of New Zealand's young adults between 2001 and 2013. The original density dot map was created by 
-        <a href="http://schiff.co.nz/2014/10/mapping-the-youngish-adults/" title="Aaron Schiff’s blog - Mapping the young(ish) adults" target="_blank" >Aaron Schiff</a> using census data:         
+        <em>"[…] there is one blue dot for each new person in census area units that experienced population growth over this time, and one red dot for each person lost in areas where the population shrank."</em>
       </p>
-			<p>
-        <em>
-          "[…] there is one blue dot for each new person in census area units that experienced population growth over this time, and one red dot for each person lost in areas where the population shrank."
-        </em>
-      </p>
-      <p>
-        In addition to population changes of young adults "Aged 20 - 34", you can select "All ages" for comparison.
-      </p>
-	  <a href='#' class='toggle-info'><strong>Explore</strong></a>
+      <p>In addition to population changes of young adults "Aged 20 - 34", you can select "All ages" for comparison.</p>
+      <a href="#" class="toggle-info"><strong>Explore</strong></a>
 		</div>
 	</div>
   
   <footer id="bottom" class="navbar navbar-fixed-bottom hidden-standalone">
-      <ul class="pull-right list-inline">
-        <li>
-          <div class="hidden-fullscreen"><a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="icon-fullscreen"></span></a>
-          </div>
-        </li>
-        <li>
-          <div class="visible-fullscreen"><a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="icon-fullscreen-close"></span></a>
-          </div>
-        </li>
-      </ul>
-  </footer>  
+    <div class="hidden-fullscreen btn-fullscreen  pull-right">
+      <a href="#" target="_blank" title="View in fullscreen" data-toggle="fullscreen"><span class="icon-fullscreen"></span></a>
+    </div>
+    <div class="visible-fullscreen btn-fullscreen pull-right">
+      <a href="#" title="Exit Fullscreen" data-toggle="fullscreen-close"><span class="icon-fullscreen-close"></span></a>
+    </div>
+  </footer>
   
 </body>
 </html>
