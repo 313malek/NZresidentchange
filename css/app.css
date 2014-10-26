@@ -238,7 +238,7 @@ a.navbar-brand.home{
 .information-box {
     background: none repeat scroll 0 0 white;   
     height: 33%;
-    margin: 0 auto;
+    margin: 0;
     overflow-y: auto;
     padding: 20px;
     position: absolute;
@@ -310,7 +310,7 @@ a:hover .icon-fullscreen-close {background-position: -50px -50px;}
     opacity: 1;
     position: relative;
     top: 50%;
-    width: 600px;
+    margin: 0 10px;
   }
 
   .legend-container {
@@ -318,4 +318,11 @@ a:hover .icon-fullscreen-close {background-position: -50px -50px;}
     right: 20px;
     left:auto;
   }  
+}
+
+@media (min-width: 1024px){
+  .information-box {
+    width:600px;
+    margin: 0 auto;
+  }
 }
