@@ -205,21 +205,6 @@ a.strong {
     font-weight: bold;
 }
 /* Info Panel */
-/*
-.information {
-    bottom: 0;
-    height: 33%;
-    left: 0;
-    margin-bottom: 50px;
-    overflow: auto;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
-    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-}
-*/
 .information {
     margin: 0 auto;
     overflow: auto;
@@ -227,8 +212,7 @@ a.strong {
     right: 0;
     top: 0;
     bottom: 50px;
-    left: 0;
-    height:100%;
+    left: 0;   
     width: 100%;
     z-index: 5000;	
 		background-color: rgba(0,0,0,0.1);
@@ -236,6 +220,7 @@ a.strong {
 
 .standalone .information {
   bottom: 0;
+  height:100%;
 }
 
 .information-box {
