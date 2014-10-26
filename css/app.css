@@ -201,7 +201,9 @@ a.navbar-brand.home{
 .sep{
   padding: 15px 0px;
 }
-
+a.strong {
+    font-weight: bold;
+}
 /* Info Panel */
 /*
 .information {
