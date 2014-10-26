@@ -29,7 +29,7 @@ $(function(){
 
   initInfo();
   
-  $('.navbar-brand').on('click', function(e){
+  $('.reset-map').on('click', function(e){
     e.preventDefault();
     resetMapView();
   });
@@ -40,6 +40,8 @@ $(function(){
     updateMapView();
     map.removeLayer(layers.all);
     map.addLayer(layers.young);
+    $('.toggle-layer').removeClass('active'); 
+    $("a[data-mapid='y']").addClass('active');
   }  
   
   function initInfo(){ 
