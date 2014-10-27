@@ -2,9 +2,9 @@ $(function(){
 
   var settings = {
     token:'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A',
-    base_id: 'tmfrnz.gvbfs7su',
-    young_id: 'tmfrnz.1wis5rk9',
-    all_id: 'tmfrnz.9of7p66r',
+    base_id: 'nzherald.9uvaq0k9',
+    young_id: 'nzherald.8vzhbyb9',
+    all_id: 'nzherald.nq5pcik9',
     map_url : 'http://dumparkltd.github.io/NZresidentchange/',
     parent_url : 'http://localhost:8888/NZresidentchange/embed.html',
     zoom_max : 12,
