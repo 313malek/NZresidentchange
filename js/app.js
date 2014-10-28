@@ -1,7 +1,7 @@
 $(function(){
 
   var settings = {
-    token:'pk.eyJ1IjoidG1mcm56IiwiYSI6IkRNZURKUHcifQ._ljgPcF75Yig1Of8adL93A',
+    token:'pk.eyJ1IjoibnpoZXJhbGQiLCJhIjoiSVBPNHM0cyJ9.PDW_j3xU8w-wTnKCpnshPg',
     base_id: 'nzherald.9uvaq0k9',
     young_id: 'nzherald.8vzhbyb9',
     all_id: 'nzherald.nq5pcik9',
