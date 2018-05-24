@@ -13,6 +13,27 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/Control.Loading.css" rel="stylesheet" />
   <link href="css/app.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+  <script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#ffffff",
+      "text": "#48565D"
+    },
+    "button": {
+      "background": "#48565D",
+      "text": "#ffffff"
+    }
+  },
+  "theme": "edgeless",
+  "content": {
+    "href": "http://dumpark.com/legal/privacy.html"
+  }
+})});
+  </script>	
 </head>
 <body class='standalone'>
   <div class="hidden-fullscreen shadow-wrap"></div>  
